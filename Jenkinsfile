@@ -8,7 +8,7 @@ node {
 
 	stage ('Build') {
 
-		docker.image ('trion/ng-cli').inside {
+		docker.image('trion/ng-cli').inside {
 
 			sh 'npm install'
 
