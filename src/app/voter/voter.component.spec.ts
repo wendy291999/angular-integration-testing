@@ -2,8 +2,6 @@ import { VoterComponent } from './voter.component';
 
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Component } from '@angular/core/src/metadata/directives';
-import { Testability } from '@angular/core/src/testability/testability';
 
 describe('Integration tests - VoterComponent', () => {
   let component : VoterComponent;
@@ -21,13 +19,13 @@ describe('Integration tests - VoterComponent', () => {
   });
 
   it('should render total votes', () => {
-    component.othersVote = 20;
-    component.myVote = 1;
-    fixture.detectChanges();
+   component.othersVote = 20;
+   component.myVote = 1;
+   fixture.detectChanges();
 
-    let de = fixture.debugElement.query(By.css('.vote-count'));
-    let el : HTMLElement = de.nativeElement;
-    expect(el.innerText).toContain('21');
+   let de = fixture.debugElement.query(By.css('.vote-count'));
+   let el : HTMLElement = de.nativeElement;
+   expect(el.innerText).toContain('21');
 
   });
 
@@ -37,9 +35,9 @@ describe('Integration tests - VoterComponent', () => {
     fixture.detectChanges();
 
     let de = fixture.debugElement.query(By.css('.glyphicon-menu-up'));
-    expect(de.classes['highlighted']).toBeTruthy();
+    expect(de.classes.highlighted).toBeTruthy();
 
-  });
+   });
 
 
   it('should increase total votes when i click the upvote ', () => {
@@ -47,5 +45,9 @@ describe('Integration tests - VoterComponent', () => {
 
     button.triggerEventHandler('click', null);
     expect(component.totalVotes).toBe(1);
+
+   });
+
+
 
   });

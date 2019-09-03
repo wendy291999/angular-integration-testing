@@ -12,23 +12,27 @@ export class VoterComponent {
   @Output() vote = new EventEmitter();
 
   upVote() {
-    if (this.myVote == 1)
-      return;
+    // tslint:disable-next-line:triple-equals
+    if (this.myVote == 1) {
+        return;
+    }
 
     this.myVote++;
     this.vote.emit(this.myVote);
 
-    //this.vote.emit({ myVote: this.myVote });
+    // this.vote.emit({ myVote: this.myVote });
   }
 
   downVote() {
-    if (this.myVote == -1)
-      return;
+    // tslint:disable-next-line:triple-equals
+    if (this.myVote == -1) {
+        return;
+    }
 
     this.myVote--;
     this.vote.emit(this.myVote);
 
-    //this.vote.emit({ myVote: this.myVote });
+    // this.vote.emit({ myVote: this.myVote });
   }
 
   get totalVotes() {
